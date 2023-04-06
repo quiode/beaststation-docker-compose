@@ -13,12 +13,14 @@ services:
       - proxy
       - website-chris
       - onlyoffice
+      - registry
     volumes:
       - conf:/etc/nginx/conf.d
       - ./nginx_config:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
       - certs:/etc/nginx/certs:ro
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./htpasswd:/etc/nginx/htpasswd
     labels:
       - "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy"
     environment:
@@ -38,6 +40,7 @@ services:
       - dominik-schwaiger
       - website-chris
       - onlyoffice
+      - registry
     volumes:
       - ./nginx_config:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
@@ -77,5 +80,8 @@ networks:
 
   onlyoffice:
     name: onlyoffice
+
+  registry:
+    name: registry
 
   proxy:

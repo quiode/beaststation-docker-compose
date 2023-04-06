@@ -2,6 +2,10 @@
 
 Docker compose files for my server (Beaststation).
 
+# Setup
+
+- Create htpasswd for docker.dominik-schwaiger.ch
+
 ## Required Environment Variables
 
 - `DOCKER_PW`
