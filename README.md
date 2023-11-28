@@ -41,6 +41,9 @@ Docker compose files for my server (Beaststation).
 - `/mnt/raid5/bitwarden/data`
 - `/mnt/raid5/bitwarden/database`
 - `/mnt/raid5/bitwarden/logs`
+- `/mnt/raid5/gitlab/config`
+- `/mnt/raid5/gitlab/data`
+- `/mnt/raid5/gitlab/logs`
 - `/var/run/docker.sock`
 - `/home/domina/beaststation-docker-compose/proxy/nginx_config`
 - `/home/domina/beaststation-docker-compose`
@@ -52,3 +55,4 @@ Docker compose files for my server (Beaststation).
 - 443
 - 25565
 - 1194
+- 22

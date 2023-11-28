@@ -15,6 +15,7 @@ services:
       - compose-watcher
       - portainer
       - bitwarden
+      - gitlab
     volumes:
       - conf:/etc/nginx/conf.d
       - /home/domina/beaststation-docker-compose/proxy/nginx_config:/etc/nginx/vhost.d
@@ -42,6 +43,7 @@ services:
       - compose-watcher
       - portainer
       - bitwarden
+      - gitlab
     volumes:
       - /home/domina/beaststation-docker-compose/proxy/nginx_config:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
@@ -69,7 +71,6 @@ volumes:
   certs:
   acme:
 
-
 networks:
   nextcloud:
     name: nextcloud
@@ -88,5 +89,8 @@ networks:
   
   bitwarden:
     name: bitwarden
+
+  gitlab:
+    name: gitlab
 
   proxy:

@@ -1,0 +1,27 @@
+version: '3.6'
+services:
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    restart: always
+    container_name: "gitlab"
+    hostname: 'gitlab.dominik-schwaiger.ch'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://gitlab.dominik-schwaiger.ch'
+        # Add any other gitlab.rb configuration here, each on its own line
+      VIRTUAL_HOST: "gitlab.dominik-schwaiger.ch"
+      LETSENCRYPT_HOST: "gitlab.dominik-schwaiger.ch"
+    ports:
+      - '22:22'
+    volumes:
+      - '/mnt/raid5/gitlab/config:/etc/gitlab'
+      - '/mnt/raid5/gitlab/logs:/var/log/gitlab'
+      - '/mnt/raid5/gitlab/data:/var/opt/gitlab'
+    shm_size: '256m'
+    networks:
+      - gitlab
+
+networks:
+  gitlab:
+    name: gitlab
+    external: true
