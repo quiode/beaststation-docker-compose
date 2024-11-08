@@ -15,7 +15,8 @@ services:
       - "--certificatesresolvers.letsencrypt.acme.storage=acme.json"
       - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
       #TODO: - "--certificatesresolvers.letsencrypt.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
-      - "--entryPoints.name.transport.respondingTimeouts.readTimeout=5m"
+      - "--entryPoints.web.transport.respondingTimeouts.readTimeout=5m"
+      - "--entryPoints.websecure.transport.respondingTimeouts.readTimeout=5m"
     ports:
       - "80:80"
       - "443:443"
