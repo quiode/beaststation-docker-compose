@@ -2,6 +2,7 @@ services:
   traefik:
     image: traefik:3
     command: |
+      --log.level=DEBUG
       --api.dashboard=true
       --providers.docker
       --entryPoints.web.address=:80
