@@ -14,7 +14,7 @@ services:
       VIRTUAL_PORT: "9443"
       VIRTUAL_PROTO: "https"
     labels:
-      - "traefik.http.routers.portainer.rule=Host(`regisportainertry.dominik-schwaiger.ch`)"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.dominik-schwaiger.ch`)"
       - "traefik.http.routers.portainer.tls=true"
       - "traefik.http.routers.portainer.tls.certresolver=letsencrypt"
       - "traefik.http.services.portainer.loadbalancer.server.port=9443"
