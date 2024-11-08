@@ -24,5 +24,5 @@ services:
       - "traefik.http.middlewares.test-auth.basicauth.usersfile=/auth/users"
       - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.rule=Host(`traefik.dominik-schwaiger.ch`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
-      - traefik.http.routers.blog.tls=true
-      - traefik.http.routers.blog.tls.certresolver=letsencrypt
+      - traefik.http.routers.dashboard.tls=true
+      - traefik.http.routers.dashboard.tls.certresolver=letsencrypt
