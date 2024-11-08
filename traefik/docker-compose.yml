@@ -21,7 +21,8 @@ services:
       - /mnt/raid5/traefik/auth:/auth
       - /mnt/raid5/traefik/acme:/etc/traefik/acme
     labels:
-      - "traefik.http.middlewares.dashboard.basicauth.usersfile=/auth/users"
+      - "traefik.http.middlewares.dashboard-auth.basicauth.usersfile=/auth/users"
+      - "traefik.http.routers.dashboard.middlewares=dashboard-auth@docker"
       - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.rule=Host(`traefik.dominik-schwaiger.ch`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
       - traefik.http.routers.dashboard.tls=true
