@@ -4,7 +4,7 @@ services:
     container_name: traefik
     restart: always
     command:
-      - "--log.level=DEBUG" # TODO:
+      - "--log.level=INFO" # TODO:
       - "--api.dashboard=true"
       - "--providers.docker"
       - "--entryPoints.web.address=:80"
@@ -14,7 +14,7 @@ services:
       - "--certificatesresolvers.letsencrypt.acme.email=mail@dominik-schwaiger.ch"
       - "--certificatesresolvers.letsencrypt.acme.storage=acme.json"
       - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
-      - "--certificatesresolvers.letsencrypt.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      #TODO: - "--certificatesresolvers.letsencrypt.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
       - "--entryPoints.name.transport.respondingTimeouts.readTimeout=5m"
     ports:
       - "80:80"
