@@ -2,6 +2,7 @@ services:
   traefik:
     image: traefik:3
     command: |
+      --api.dashboard=true
       --providers.docker
       --entryPoints.web.address=:80
       --entryPoints.web.http.redirections.entryPoint.to=websecure
