@@ -1,0 +1,21 @@
+services:
+  traefik:
+    image: traefik:3
+    # Enables the web UI and tells Traefik to listen to docker
+    command:  --providers.docker
+    ports:
+      # The HTTP port
+      - "80:80"
+      # The Web UI (enabled by --api.dashboard=true)
+      - "8080:8080"
+    volumes:
+      # So that Traefik can listen to the Docker events
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /mnt/raid5/traefik/auth:/auth
+    labels:
+      # Basic Auth for Dashboard
+      - "traefik.http.middlewares.test-auth.basicauth.usersfile=/auth/users"
+      - "traefik.http.routers.dashboard.middlewares=auth"
+      - "traefik.http.routers.dashboard.service=api@internal"
+      # Set Url to match to
+      - "traefik.http.routers.dashboard.rule=Host(`traefik.dominik-schwaiger.ch`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
