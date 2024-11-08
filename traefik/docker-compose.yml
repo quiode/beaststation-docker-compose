@@ -3,19 +3,19 @@ services:
     image: traefik:3
     container_name: traefik
     restart: always
-    command: |
-      --log.level=DEBUG
-      --api.dashboard=true
-      --providers.docker
-      --entryPoints.web.address=:80
-      --entryPoints.web.http.redirections.entryPoint.to=websecure
-      --entryPoints.web.http.redirections.entryPoint.scheme=https
-      --entryPoints.websecure.address=:443
-      --certificatesresolvers.letsencrypt.acme.email=mail@dominik-schwaiger.ch
-      --certificatesresolvers.letsencrypt.acme.storage=acme.json
-      --certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web
-      --certificatesresolvers.letsencrypt.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
-      --entryPoints.name.transport.respondingTimeouts.readTimeout=5m
+    command:
+      - "--log.level=DEBUG"
+      - "--api.dashboard=true"
+      - "--providers.docker"
+      - "--entryPoints.web.address=:80"
+      - "--entryPoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entryPoints.web.http.redirections.entryPoint.scheme=https"
+      - "--entryPoints.websecure.address=:443"
+      - "--certificatesresolvers.letsencrypt.acme.email=mail@dominik-schwaiger.ch"
+      - "--certificatesresolvers.letsencrypt.acme.storage=acme.json"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.letsencrypt.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      - "--entryPoints.name.transport.respondingTimeouts.readTimeout=5m"
     ports:
       - "80:80"
       - "443:443"
@@ -28,8 +28,8 @@ services:
       - "traefik.http.routers.dashboard.middlewares=dashboard-auth@docker"
       - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.rule=Host(`traefik.dominik-schwaiger.ch`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
-      - traefik.http.routers.dashboard.tls=true
-      - traefik.http.routers.dashboard.tls.certresolver=letsencrypt
+      - "traefik.http.routers.dashboard.tls=true"
+      - "traefik.http.routers.dashboard.tls.certresolver=letsencrypt"
     networks:
       - nextcloud
       - dominik-schwaiger
