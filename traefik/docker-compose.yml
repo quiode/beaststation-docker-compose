@@ -9,6 +9,10 @@ services:
       --entryPoints.web.http.redirections.entryPoint.to=websecure
       --entryPoints.web.http.redirections.entryPoint.scheme=https
       --entryPoints.websecure.address=:443
+      --certificatesresolvers.letsencrypt.acme.email=mail@dominik-schwaiger.ch
+      --certificatesresolvers.letsencrypt.acme.storage=acme.json
+      --certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web
+      --certificatesresolvers.letsencrypt.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
     ports:
       - "80:80"
       - "443:443"
@@ -19,3 +23,5 @@ services:
       - "traefik.http.middlewares.test-auth.basicauth.usersfile=/auth/users"
       - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.rule=Host(`traefik.dominik-schwaiger.ch`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+      - traefik.http.routers.blog.tls=true
+      - traefik.http.routers.blog.tls.certresolver=letsencrypt
