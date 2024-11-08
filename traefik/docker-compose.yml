@@ -19,6 +19,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /mnt/raid5/traefik/auth:/auth
+      - /mnt/raid5/traefik/acme:/etc/traefik/acme
     labels:
       - "traefik.http.middlewares.test-auth.basicauth.usersfile=/auth/users"
       - "traefik.http.routers.dashboard.service=api@internal"

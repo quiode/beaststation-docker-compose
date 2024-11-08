@@ -57,6 +57,7 @@ These should be written inside `/etc/environment`.
 - `/mnt/raid5/registry/data`
 - `/mnt/raid5/registry/auth`
 - `/mnt/raid5/traefik/auth`
+- `/mnt/raid5/traefik/acme`
 - `/var/run/docker.sock`
 - `/home/domina/beaststation-docker-compose/proxy/nginx_config`
 - `/home/domina/beaststation-docker-compose`
