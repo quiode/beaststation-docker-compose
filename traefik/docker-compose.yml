@@ -15,6 +15,5 @@ services:
       - /mnt/raid5/traefik/auth:/auth
     labels:
       - "traefik.http.middlewares.test-auth.basicauth.usersfile=/auth/users"
-      - "traefik.http.routers.dashboard.middlewares=auth"
       - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.rule=Host(`traefik.dominik-schwaiger.ch`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
