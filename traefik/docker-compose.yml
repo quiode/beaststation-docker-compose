@@ -7,6 +7,7 @@ services:
       - "--log.level=INFO" # TODO:
       - "--api.dashboard=true"
       - "--providers.docker"
+      - "--global.sendAnonymousUsage"
       - "--entryPoints.web.address=:80"
       - "--entryPoints.web.http.redirections.entryPoint.to=websecure"
       - "--entryPoints.web.http.redirections.entryPoint.scheme=https"
