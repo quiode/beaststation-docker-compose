@@ -76,7 +76,6 @@ services:
       - "traefik.http.routers.office.rule=Host(`office.dominik-schwaiger.ch`)"
       - "traefik.http.routers.office.tls=true"
       - "traefik.http.routers.office.tls.certresolver=letsencrypt"
-      - "traefik.http.services.office.loadbalancer.server.port=80"
       - "traefik.enable=true"
 
   nextcloud-database:
