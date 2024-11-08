@@ -18,6 +18,7 @@ services:
       - "traefik.http.routers.registry.tls=true"
       - "traefik.http.routers.registry.tls.certresolver=letsencrypt"
       - "traefik.http.services.registry.loadbalancer.server.port=5000"
+      - "traefik.enable=true"
 
 networks:
   registry:

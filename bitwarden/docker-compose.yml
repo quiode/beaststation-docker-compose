@@ -18,6 +18,7 @@ services:
       - "traefik.http.routers.bitwarden.tls=true"
       - "traefik.http.routers.bitwarden.tls.certresolver=letsencrypt"
       - "traefik.http.services.bitwarden.loadbalancer.server.port=8080"
+      - "traefik.enable=true"
 
   bitwarden-db:
     image: mariadb:10

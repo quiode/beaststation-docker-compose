@@ -13,6 +13,7 @@ services:
       - "traefik.http.routers.website.rule=Host(`dominik-schwaiger.ch`)"
       - "traefik.http.routers.website.tls=true"
       - "traefik.http.routers.website.tls.certresolver=letsencrypt"
+      - "traefik.enable=true"
 
 networks:
   dominik-schwaiger:
