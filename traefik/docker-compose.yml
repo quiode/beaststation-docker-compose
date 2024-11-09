@@ -19,6 +19,8 @@ services:
       #TODO: - "--certificatesresolvers.letsencrypt.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
       - "--entryPoints.web.transport.respondingTimeouts.readTimeout=5m"
       - "--entryPoints.websecure.transport.respondingTimeouts.readTimeout=5m"
+      - "traefik.http.middlewares.nextcloud-header.headers.framedeny=true"
+      - "traefik.http.middlewares.nextcloud-header.headers.browserxssfilter=true"
     ports:
       - "80:80"
       - "443:443"
