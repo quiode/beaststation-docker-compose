@@ -64,8 +64,8 @@ These should be written inside `/etc/environment`.
 
 ## Ports
 
-- 80 (nginx)
-- 443 (nginx)
+- 80 (proxy)
+- 443 (proxy)
 - 25565 (Minecraft)
 - 1194 (OpenVPN)
 - 22 (Gitlab)
